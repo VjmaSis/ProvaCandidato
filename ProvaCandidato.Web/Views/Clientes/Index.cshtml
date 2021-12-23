@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ProvaCandidato.Data.Entidade.Cliente>
+
+@{
+    ViewBag.Title = "Clientes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Clientes</h2>
+
+<p>
+    @Html.ActionLink("Criar novo cliente", "Create")
+</p>
+
+<form class="form-inline" method="post" action="@Url.Action("Pesquisar", "Clientes")">
+    <div class="form-group mb-2">
+        <label for="staticEmail2" class="sr-only">Pesquisar:</label>
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+        <input type="text" class="form-control" id="pesquisar" name="pesquisar" placeholder="Digite o nome aqui">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Pesquisar</button>
+</form>
+
+<br />
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.Codigo }) |
+                @Html.ActionLink("Detalhes", "Details", new { id = item.Codigo }) |
+                @Html.ActionLink("Deletar", "Delete", new { id = item.Codigo })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -53,8 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContextoPrincipal.cs" />
+    <Compile Include="DataNascimentoAttribute.cs" />
     <Compile Include="Entidade\Cidade.cs" />
     <Compile Include="Entidade\Cliente.cs" />
+    <Compile Include="Entidade\EntidadeBase.cs" />
+    <Compile Include="Migrations\202112231954216_CargaInicial.cs" />
+    <Compile Include="Migrations\202112231954216_CargaInicial.designer.cs">
+      <DependentUpon>202112231954216_CargaInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112231954216_CargaInicial.resx">
+      <DependentUpon>202112231954216_CargaInicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
